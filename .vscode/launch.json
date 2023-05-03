@@ -1,0 +1,34 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Payload",
+            "type": "node-terminal",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "command": "npm run dev",
+            "cwd": "${workspaceFolder}/payload"
+        },        {
+            "name": "Client",
+            "type": "node-terminal",
+            "request": "launch",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "command": "npm run dev",
+            "outFiles": ["${workspaceFolder}/client/dist/**/*.js"],
+            "cwd": "${workspaceFolder}/client"
+        }
+    ],  "compounds": [
+        {
+          "name": "Payload/Client",
+          "configurations": ["Payload", "Client"],
+          "stopAll": true
+        }
+      ]
+}
